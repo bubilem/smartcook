@@ -1,0 +1,2 @@
+# smartcook
+SmartCook school project
