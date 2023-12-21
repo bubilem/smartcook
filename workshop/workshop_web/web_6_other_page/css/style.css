@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (min-width: 600px) {
+  main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
+main > div {
+  color: #efe483;
+  background: #9d9000;
+}
+main > div a {
+  color: #efe483;
+}
+main > div a:hover {
+  color: #fff;
+}
+main > div h1 {
+  font-size: 4em;
+  padding: 0.5em;
+}
+main > div h2 {
+  font-size: 2em;
+  padding: 0.5em;
+}
+
+.fruits {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 0;
+}
+@media screen and (min-width: 900px) {
+  .fruits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fruits {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.fruits a {
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.fruits a:hover {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.fruits a.apple {
+  color: #fff5de;
+  background: #760000;
+}
+.fruits a.banana {
+  color: #ffe376;
+  background: #d68c00;
+}
+.fruits a.blueberry {
+  color: #64a4bf;
+  background: #0e2247;
+}
+.fruits a.melon {
+  color: #ff7171;
+  background: #af0202;
+}
+.fruits a.orange {
+  color: #ffc03a;
+  background: #e74c00;
+}
+.fruits a.pear {
+  color: #efe483;
+  background: #9d9000;
+}
+.fruits a div {
+  padding: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.fruits a div h2 {
+  font-size: 3em;
+  padding: 1em 0 2em 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.fruits a div img {
+  width: 70%;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.fruit {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+@media screen and (min-width: 900px) {
+  .fruit {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+.fruit.apple {
+  color: #fff5de;
+  background: linear-gradient(135deg, #760000, #320000);
+}
+.fruit > div {
+  padding: 4em;
+  text-align: center;
+}
+@media screen and (min-width: 900px) {
+  .fruit > div {
+    width: 50%;
+  }
+}
+.fruit > div:first-of-type h1 {
+  padding: 0 0 1em 0;
+  font-size: 4em;
+  color: #fff5de;
+}
+.fruit > div:first-of-type p {
+  padding: 1em 0 0 0;
+}
+.fruit > div img {
+  width: 100%;
+}

@@ -1,0 +1,59 @@
+.fruits {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  grid-template-rows: auto;
+  gap: 0;
+  a {
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      filter: grayscale(100%);
+    }
+    &.apple {
+      color: #fff5de;
+      background: #760000;
+    }
+    &.banana {
+      color: #ffe376;
+      background: #d68c00;
+    }
+    &.blueberry {
+      color: #64a4bf;
+      background: #0e2247;
+    }
+    &.melon {
+      color: #ff7171;
+      background: #af0202;
+    }
+    &.orange {
+      color: #ffc03a;
+      background: #e74c00;
+    }
+    &.pear {
+      color: #efe483;
+      background: #9d9000;
+    }
+    div {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        font-size: 3em;
+        padding: 1em 0 2em 0;
+        transition: all 0.5s ease-in-out;
+      }
+      img {
+        width: 70%;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": 1,
+  "name": "Earl Grey Tea",
+  "method": "brewed",
+  "difficulty": { "val": 1, "name": "easy" },
+  "country_of_origin": { "iso": "GBR", "name": "United Kingdom" },
+  "duration": { "value": 5, "unit": "minutes" },
+  "description": [
+    "Boil the water.",
+    "Prepare a cup of tea. Pour hot water over the tea leaves.",
+    "Leave to infuse for 3 minutes.",
+    "Remove the tea leaves.",
+    "Optionally, sweeten the tea or add milk to taste.",
+    "Serve."
+  ],
+  "price": "cheap",
+  "tolerance": [
+    { "name": "vegetarian" },
+    { "name": "vegan", "desc": "without cow milk" }
+  ],
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "water",
+      "quantity": 250,
+      "unit": "ml"
+    },
+    {
+      "id": 2,
+      "name": "tea leaves",
+      "quantity": 3,
+      "unit": "g"
+    },
+    {
+      "id": 4,
+      "name": "sugar",
+      "quantity": 4,
+      "unit": "g"
+    }
+  ]
+}
