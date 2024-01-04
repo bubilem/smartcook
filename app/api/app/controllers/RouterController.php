@@ -11,6 +11,12 @@ class RouterController extends MainController
             case 'structure':
                 (new StructureController(req: $this->req, res: $this->res))->run();
                 break;
+            case 'recipe':
+                (new RecipeController(req: $this->req, res: $this->res))->run();
+                break;
+            case 'recipes':
+                (new RecipesController(req: $this->req, res: $this->res))->run();
+                break;
             default:
                 (new NoneController(req: $this->req, res: $this->res))->run();
         }

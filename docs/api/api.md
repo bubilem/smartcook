@@ -171,7 +171,7 @@ _response_:
 
 ```
 
-## Recipe WIP
+### Recipe WIP
 
 _request_:
 
@@ -192,7 +192,7 @@ data:{...}
 
 ```
 
-## Insert New Recipe WIP
+### Insert New Recipe WIP
 
 _request_:
 
