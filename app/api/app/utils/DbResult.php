@@ -1,27 +1,23 @@
 <?php
-class DbResult
+
+class DBResult
 {
 
-    private mysqli_result $result;
+    private PDOStatement $statement;
 
-    public function __construct(mysqli_result $result)
+    public function __construct(PDOStatement $statement)
     {
-        $this->result = $result;
+        $this->statement = $statement;
     }
 
-    public function numRows(): int
+    public function affectedRowsCount(): int
     {
-        return $this->result->num_rows;
-    }
-
-    public function numFields(): int
-    {
-        return $this->result->field_count;
+        return $this->statement->rowCount();
     }
 
     public function fetchAll(): array
     {
-        return $this->result->fetch_all(MYSQLI_ASSOC);
+        return $this->statement->fetchAll();
     }
 
 }
