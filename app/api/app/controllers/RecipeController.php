@@ -10,9 +10,8 @@ class RecipeController extends MainController
             if (!$id) {
                 throw new Exception("No recipe id.");
             }
-            $db = new DB;
             $q = "SELECT * FROM recipe WHERE id = $id";
-            $recipe = $db->query($q)->fetchAll();
+            $recipe = DB::query($q)->fetchAll();
             if (empty($recipe[0])) {
                 throw new Exception("Recipe not found.");
             }

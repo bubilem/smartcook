@@ -1,16 +1,16 @@
 <?php
 
-class RecipesController extends MainController
+class RecipeAddController extends MainController
 {
 
     public function run(): void
     {
         try {
-            $q = "SELECT id, name FROM recipe ORDER BY name";
-            $recipes = DB::query($q)->fetchAll();
+            $datastruct = json_decode(file_get_contents("data/structure.json"), true);
+            $db = new DBDriver;
             $this->res
                 ->set('stat', 'ok')
-                ->set('data', $recipes);
+                ->set('data', $recipe[0]);
         } catch (Exception $e) {
             $this->res
                 ->set('stat', 'fail')

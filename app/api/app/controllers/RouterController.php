@@ -4,21 +4,23 @@ class RouterController extends MainController
 {
     public function run(): void
     {
-        switch ($this->req->getUrlParam(0)) {
+        $endpoint = $this->req->getUrlParam(0);
+        switch ($endpoint) {
             case 'echo':
-                (new EchoController(req: $this->req, res: $this->res))->run();
-                break;
             case 'structure':
-                (new StructureController(req: $this->req, res: $this->res))->run();
-                break;
             case 'recipe':
-                (new RecipeController(req: $this->req, res: $this->res))->run();
-                break;
+            case 'recipe-add':
             case 'recipes':
-                (new RecipesController(req: $this->req, res: $this->res))->run();
+            case 'test':
+                (
+                    new(str_replace("-", "", ucwords($endpoint, "-")) . "Controller")(
+                        $this->req,
+                        $this->res
+                    )
+                )->run();
                 break;
             default:
-                (new NoneController(req: $this->req, res: $this->res))->run();
+                (new NoneController($this->req, $this->res))->run();
         }
     }
 }
