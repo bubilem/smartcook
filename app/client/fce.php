@@ -31,7 +31,7 @@ function create_signature(array $data, string $secret): string
     return hash_hmac("SHA256", json_encode($data, JSON_INVALID_UTF8_IGNORE), $secret);
 }
 
-function verify_data(array $data, string $signature, string $secret): bool
+function validate_data(array $data, string $signature, string $secret): bool
 {
     return hash_hmac("SHA256", json_encode($data, JSON_INVALID_UTF8_IGNORE), $secret) === $signature;
 }

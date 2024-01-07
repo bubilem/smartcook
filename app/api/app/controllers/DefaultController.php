@@ -1,11 +1,11 @@
 <?php
 
-class NoneController extends MainController
+class DefaultController extends MainController
 {
 
-    public function run(): void
+    public function do (): void
     {
-        echo (string) $this->res
+        $this->res
             ->set('stat', 'ok')
             ->set('mess', "No or not supported operation.")
             ->set('docu', "https://github.com/bubilem/smartcook/tree/main/docs/api");

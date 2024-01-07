@@ -11,4 +11,20 @@ class StructureModel extends MainModel
         );
     }
 
+    public function keyExists(int|string $key, string $attribute): bool
+    {
+        return isset($this->data[$attribute][$key]);
+    }
+
+    public function keysExist(array $keys, string $attribute): bool
+    {
+        $exist = true;
+        foreach ($keys as $key) {
+            if (!$this->keyExists($key, $attribute)) {
+                return false;
+            }
+        }
+        return $exist;
+    }
+
 }

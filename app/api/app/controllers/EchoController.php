@@ -3,19 +3,15 @@
 class EchoController extends MainController
 {
 
-    public function run(): void
+    public function do (): void
     {
-        try {
-            $this->req->verify();
-            $this->res
-                ->set('stat', 'ok')
-                ->set('data', $this->req->get());
-        } catch (Exception $e) {
-            $this->res
-                ->set('stat', 'fail')
-                ->set('mess', $e->getMessage());
+        $data = $this->req->get();
+        if (empty($data)) {
+            throw new Exception("no data to echo");
         }
-        echo (string) $this->res;
+        $this->res
+            ->set('stat', 'ok')
+            ->set('data', $data);
     }
 
 }

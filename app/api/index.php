@@ -4,4 +4,11 @@ mb_internal_encoding("UTF-8");
 require_once('conf.php');
 require_once(DIR_APP . 'utils/Loader.php');
 spl_autoload_register('Loader::loadClass');
-(new RouterController)->run();
+
+try {
+    Router::route();
+} catch (Exception $e) {
+    echo (string) (new ResponseModel)
+        ->set('stat', 'fail')
+        ->set('mess', $e->getMessage());
+}

@@ -8,10 +8,12 @@ class UserModel extends MainModel
         $this->load($id);
     }
 
-    public function load(int $id): bool
+    public function load(int $id)
     {
         $data = json_decode(file_get_contents(DIR_DATA . "/users.json"), true);
+        if (empty($data[$id])) {
+            throw new Exception("User $id does not exist.");
+        }
         $this->data = $data[$id] ?? [];
-        return true;
     }
 }
