@@ -27,9 +27,14 @@ class DBDriver
         if ($params === null) {
             $statement = $this->conn->query($query);
         } else {
-            $statement = $this->conn->prepare($query, $params);
+            $statement = $this->conn->prepare($query);
             $statement->execute($params);
         }
         return new DBResult($statement);
+    }
+
+    public function lastInsertId(): string
+    {
+        return (string) $this->conn->lastInsertId();
     }
 }

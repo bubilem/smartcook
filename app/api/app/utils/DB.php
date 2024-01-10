@@ -12,4 +12,9 @@ class DB
         return self::$dbDriver->query($query, $params);
     }
 
+    public static function lastInsertId(): string
+    {
+        return self::$dbDriver->lastInsertId();
+    }
+
 }
