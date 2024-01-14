@@ -3,10 +3,10 @@
 class RecipeValidateController extends MainController
 {
 
-    public function do (): void
+    public function do(): void
     {
         $recipe = new RecipeModel(
-            data: $this->req->get("data"),
+            data: (array) $this->req->get("data"),
             strc: new StructureModel,
             user: $this->req->getUser()
         );

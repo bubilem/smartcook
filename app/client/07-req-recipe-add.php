@@ -4,7 +4,7 @@ $url = 'http://www/smartcook/app/api/recipe-add';
 
 $data = [
     "data" => [
-        "name" => "Earl Grey",
+        "name" => "Black Grey",
         "difficulty" => 1,
         "duration" => "5",
         "price" => 1,

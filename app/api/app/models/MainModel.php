@@ -15,7 +15,7 @@ abstract class MainModel
         return $this;
     }
 
-    public function get(string $key = null): string|int|array|null
+    public function get(string $key = null): mixed
     {
         return $key === null
             ? $this->data

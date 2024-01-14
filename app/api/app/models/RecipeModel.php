@@ -17,8 +17,94 @@ class RecipeModel extends MainModel
         $this->user = $user;
     }
 
-    public function validate(): bool
+    public function insertToDb(): static
     {
+        try {
+            DB::query("START TRANSACTION");
+            DB::query(
+                "INSERT INTO recipe (name, difficulty, duration, price, description, country, author) "
+                . "VALUES (:name, :difficulty, :duration, :price, :description, :country, :author)",
+                [
+                    'name' => (string) $this->get("name"),
+                    'difficulty' => (int) $this->get("difficulty"),
+                    'duration' => (int) $this->get("duration"),
+                    'price' => (int) $this->get("price"),
+                    'description' => (string) $this->get("description"),
+                    'country' => (string) $this->get("country"),
+                    'author' => (string) $this->get("author")
+                ]
+            );
+            $id = (int) DB::lastInsertId();
+            if (!$id) {
+                throw new Exception("Recipe add: error while inserting recipe record");
+            }
+            $this->set("id", $id);
+
+            foreach ((array) $this->get("dish_category") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_dish_category (recipe_id, dish_category_id) VALUES (:r, :c)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        'c' => (int) $val
+                    ]
+                );
+            }
+
+            foreach ((array) $this->get("recipe_category") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_category (recipe_id, recipe_category_id) VALUES (:r, :c)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        'c' => (int) $val
+                    ]
+                );
+            }
+
+            foreach ((array) $this->get("tolerance") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_tolerance (recipe_id, tolerance_id) VALUES (:r, :t)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        't' => (int) $val
+                    ]
+                );
+            }
+
+            $rota = 1;
+            foreach ((array) $this->get("ingredient") as $val) {
+                $ingr = new IngredientModel($val, $this->strc);
+                $ingr->validate();
+                if (!$ingr->get("id")) {
+                    $ingr->insertToDb();
+                }
+                DB::query(
+                    "INSERT INTO recipe_has_ingredient (recipe_id, ingredient_id, quantity, unit, necessary, rota, comment) "
+                    . "VALUES (:recipe_id, :ingredient_id, :quantity, :unit, :necessary, :rota, :comment)",
+                    [
+                        'recipe_id' => (int) $this->get("id"),
+                        'ingredient_id' => (int) $ingr->get("id"),
+                        'quantity' => $ingr->get("quantity"),
+                        'unit' => (string) $ingr->get("unit"),
+                        'necessary' => (int) $ingr->get("necessary"),
+                        'rota' => $rota++,
+                        'comment' => $ingr->get("comment") ? (string) $ingr->get("comment") : null,
+                    ]
+                );
+            }
+
+            DB::query("COMMIT");
+        } catch (Exception $e) {
+            DB::query("ROLLBACK");
+            throw new Exception($e->getMessage());
+        }
+        return $this;
+    }
+
+    public function validate(): static
+    {
+        if (empty($this->data)) {
+            throw new Exception("Recipe: no recipe data");
+        }
         if (empty($this->data['author'])) {
             throw new Exception("Recipe: author is missing");
         }
@@ -74,8 +160,8 @@ class RecipeModel extends MainModel
         if (!$this->strc->keysExist($this->data['recipe_category'], "recipe_category")) {
             throw new Exception("Recipe: recipe_category has incorrect value");
         }
-        if (empty($this->data['tolerance']) || !is_array($this->data['tolerance'])) {
-            throw new Exception("Recipe: tolerance is missing/empty or is not array/list");
+        if (!isset($this->data['tolerance']) || !is_array($this->data['tolerance'])) {
+            throw new Exception("Recipe: tolerance is missing or is not array/list");
         }
         if (!$this->strc->keysExist($this->data['tolerance'], "tolerance")) {
             throw new Exception("Recipe: tolerance has incorrect value");
@@ -87,7 +173,7 @@ class RecipeModel extends MainModel
             $ingredient = new IngredientModel($value, $this->strc);
             $ingredient->validate();
         }
-        return true;
+        return $this;
     }
 
 }

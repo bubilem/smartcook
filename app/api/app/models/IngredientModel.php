@@ -12,6 +12,20 @@ class IngredientModel extends MainModel
         $this->strc = $strc;
     }
 
+    public function insertToDb(): static
+    {
+        DB::query(
+            "INSERT INTO ingredient (name) VALUES (:name)",
+            ['name' => (string) $this->get("name")]
+        );
+        $id = (int) DB::lastInsertId();
+        if (!$id) {
+            throw new Exception("Ingredient add: error while inserting ingredient record");
+        }
+        $this->set("id", $id);
+        return $this;
+    }
+
     public static function getIdByName(string $name): int
     {
         $result = DB::query(
@@ -21,7 +35,7 @@ class IngredientModel extends MainModel
         return (int) ($result[0]["id"] ?? 0);
     }
 
-    public function validate(): bool
+    public function validate(): static
     {
         if (!empty($this->data['id'])) {
             if (!is_numeric($this->data['id'])) {
@@ -50,10 +64,10 @@ class IngredientModel extends MainModel
         if (empty($this->data['unit'])) {
             throw new Exception("Ingredient: unit is missing");
         }
-        if (!$this->strc->keyExists($this->data['unit'], "unit")) {
+        if (!$this->strc?->keyExists($this->data['unit'], "unit")) {
             throw new Exception("Ingredient: unit has incorrect value");
         }
-        return true;
+        return $this;
     }
 
 }

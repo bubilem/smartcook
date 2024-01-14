@@ -3,7 +3,7 @@
 class EchoController extends MainController
 {
 
-    public function do (): void
+    public function do(): void
     {
         $data = $this->req->get();
         if (empty($data)) {
