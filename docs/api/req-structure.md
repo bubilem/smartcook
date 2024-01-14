@@ -64,3 +64,7 @@ https://www.smartcook-project.eu/api/structure
     "sign": "fa895788fca2d1ca69325f36f94e18ec0fd0efd7b6a633401d1561283a50e914"
 }
 ```
+
+## JSON
+
+[Data structure](../database/smartcook_data_structure.json)

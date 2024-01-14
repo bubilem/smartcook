@@ -1,13 +1,13 @@
-# Request: Recipe validate
+# Request: Add new recipe
 
-Checks if the input recipe is valid.
+System checks if the input recipe is valid and adds it to the database.
 
 ## Request:
 
 url:
 
 ```
-https://www.smartcook-project.eu/api/recipe-validate
+https://www.smartcook-project.eu/api/recipe-add
 ```
 
 post json data:
@@ -64,7 +64,7 @@ post json data:
 ```
 {
     "stat": "ok",
-    "mess": "Recipe is valid",
+    "mess": "Recipe (new id=1) is saved",
     "user": 0,
     "time": 1704647091,
     "sign": "e774c5cd79ea039a75aefec6e823f528a61d9466d6b5cead047930af0510581e"
