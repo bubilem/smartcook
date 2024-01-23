@@ -1,6 +1,6 @@
 Options -Indexes 
 
-<Files ~ "\.(json|phtml|key)$">
+<Files ~ "\.(json)$">
    order deny,allow
    deny from all
 </Files>

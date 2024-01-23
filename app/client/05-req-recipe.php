@@ -1,6 +1,6 @@
 <?php
 require_once("fce.php");
-$url = 'http://www/smartcook/app/api/recipe/1';
+$url = 'https://www.smartcook-project.eu/api/recipe/1';
 
 $public_secret = 'ab12';
 

@@ -1,6 +1,6 @@
 <?php
 require_once("fce.php");
-$url = 'http://www/smartcook/app/api/recipe-validate';
+$url = 'https://www.smartcook-project.eu/api/recipe-validate';
 
 $data = [
     "data" => [

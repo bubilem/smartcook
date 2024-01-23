@@ -1,6 +1,6 @@
 <?php
 require_once("fce.php");
-$url = 'http://www/smartcook/app/api/echo';
+$url = 'https://www.smartcook-project.eu/api/echo';
 
 $data = [
     "mess" => "Hello there",
