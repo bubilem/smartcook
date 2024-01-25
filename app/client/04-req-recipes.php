@@ -2,7 +2,7 @@
 require_once("fce.php");
 $url = 'https://www.smartcook-project.eu/api/recipes';
 
-$public_secret = 'ab12';
+$public_secret = 'smrtck';
 
 try {
     $data = request($url);

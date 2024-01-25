@@ -17,6 +17,55 @@ class RecipeModel extends MainModel
         $this->user = $user;
     }
 
+    public function loadFromDb(int $id): static
+    {
+        /* MAIN RECIPE DATA */
+        $this->data = [];
+        $data = DB::query("SELECT * FROM recipe WHERE id = :id", ["id" => $id])
+            ->fetchAll();
+        if (empty($data[0])) {
+            throw new Exception("Recipe load err: Recipe not found.");
+        }
+        $this->data = $data[0];
+        /* DISH CATEGORY */
+        $values = [];
+        $data = DB::query("SELECT dish_category_id 'dc_id' FROM recipe_has_dish_category WHERE recipe_id = :id", ["id" => $id])->fetchAll();
+        foreach ($data as $val) {
+            $values[] = (int) $val['dc_id'];
+        }
+        $this->set("dish_category", $values);
+        /* RECIPE CATEGORY */
+        $values = [];
+        $data = DB::query("SELECT recipe_category_id 'rc_id' FROM recipe_has_category WHERE recipe_id = :id", ["id" => $id])->fetchAll();
+        foreach ($data as $val) {
+            $values[] = (int) $val['rc_id'];
+        }
+        $this->set("recipe_category", $values);
+        /* TOLERANCE */
+        $values = [];
+        $data = DB::query("SELECT tolerance_id 't_id' FROM recipe_has_tolerance WHERE recipe_id = :id", ["id" => $id])->fetchAll();
+        foreach ($data as $val) {
+            $values[] = (int) $val['t_id'];
+        }
+        $this->set("tolerance", $values);
+        /* INGREDIENTS */
+        $values = [];
+        $q = "SELECT i.id 'id', i.name 'name', quantity, unit, necessary, comment FROM recipe_has_ingredient rhi JOIN ingredient i ON rhi.ingredient_id = i.id WHERE rhi.recipe_id = :id ORDER BY rhi.rota";
+        $data = DB::query($q, ["id" => $id])->fetchAll();
+        foreach ($data as $val) {
+            $values[] = [
+                "id" => intval($val['id']),
+                "name" => $val['name'],
+                "quantity" => (float) $val['quantity'],
+                "unit" => $val['unit'],
+                "necessary" => (int) $val['necessary'] ?? 1,
+                "comment" => (string) $val['comment'] ?? ''
+            ];
+        }
+        $this->set("ingredient", $values);
+        return $this;
+    }
+
     public function insertToDb(): static
     {
         try {
@@ -174,6 +223,12 @@ class RecipeModel extends MainModel
             $ingredient->validate();
         }
         return $this;
+    }
+
+    public function dataToExport(): array
+    {
+        $dataToExport = $this->get();
+        return $dataToExport;
     }
 
 }
