@@ -1,4 +1,7 @@
 {
-  "0": { "id": 0, "name": "SmartCook", "secret": "ab12" },
-  "1": { "id": 1, "name": "Test User", "secret": "cd34" }
+  "0": {
+    "id": 0,
+    "name": "SmartCook",
+    "secret": "smrtck"
+  }
 }

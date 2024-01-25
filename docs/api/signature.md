@@ -2,6 +2,18 @@
 
 Each API response is signed with a public key. See [class Signature](../../app/api/app/utils/Signature.php) for how to create signature and validate data.
 
+## SmartCook user
+
+API responses are signed with this user account:
+
+```
+"id": 0
+"name": "SmartCook"
+"secret": "smrtck"
+```
+
+This user account is not allowed for API queries.
+
 ## Method
 
 We have a data to send:

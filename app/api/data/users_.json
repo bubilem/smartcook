@@ -1,0 +1,272 @@
+{
+  "0": {
+    "id": 0,
+    "name": "SmartCook",
+    "secret": "smrtck"
+  },
+  "1": {
+    "id": 1,
+    "name": "Test User",
+    "secret": "5fcht4"
+  },
+  "2": {
+    "id": 2,
+    "name": "Brož Matyáš",
+    "secret": "uz5zn7"
+  },
+  "3": {
+    "id": 3,
+    "name": "Brzák Štěpán",
+    "secret": "j46nbd"
+  },
+  "4": {
+    "id": 4,
+    "name": "Fárek Matěj",
+    "secret": "n8g6q7"
+  },
+  "5": {
+    "id": 5,
+    "name": "Fichtner Lukáš",
+    "secret": "t44q58"
+  },
+  "6": {
+    "id": 6,
+    "name": "Grabka David",
+    "secret": "cvq9xx"
+  },
+  "7": {
+    "id": 7,
+    "name": "Chvátal Václav",
+    "secret": "t7ah8x"
+  },
+  "8": {
+    "id": 8,
+    "name": "Kašek Petr",
+    "secret": "8u2x2g"
+  },
+  "9": {
+    "id": 9,
+    "name": "Kováč Ondřej",
+    "secret": "7bfxx5"
+  },
+  "10": {
+    "id": 10,
+    "name": "Král Pavel",
+    "secret": "dtur8q"
+  },
+  "11": {
+    "id": 11,
+    "name": "Kříž Filip",
+    "secret": "rvc5hu"
+  },
+  "12": {
+    "id": 12,
+    "name": "Miklóš Jakub",
+    "secret": "skfe72"
+  },
+  "13": {
+    "id": 13,
+    "name": "Mokriš Tomáš",
+    "secret": "z3zy3w"
+  },
+  "14": {
+    "id": 14,
+    "name": "Musil Tadeáš",
+    "secret": "z42qbq"
+  },
+  "15": {
+    "id": 15,
+    "name": "Novák Petr",
+    "secret": "d2225a"
+  },
+  "16": {
+    "id": 16,
+    "name": "Pešan Ondřej",
+    "secret": "q8xdpe"
+  },
+  "17": {
+    "id": 17,
+    "name": "Peterka Jan",
+    "secret": "r7e9tu"
+  },
+  "18": {
+    "id": 18,
+    "name": "Pokorák David",
+    "secret": "z8p65k"
+  },
+  "19": {
+    "id": 19,
+    "name": "Razák Josef",
+    "secret": "h964pc"
+  },
+  "20": {
+    "id": 20,
+    "name": "Střílek Radislav",
+    "secret": "dh8zn5"
+  },
+  "21": {
+    "id": 21,
+    "name": "Šeps Roman",
+    "secret": "853f52"
+  },
+  "22": {
+    "id": 22,
+    "name": "Tadič Martin",
+    "secret": "8d373e"
+  },
+  "23": {
+    "id": 23,
+    "name": "Trnka Jaromír",
+    "secret": "83j2u9"
+  },
+  "24": {
+    "id": 24,
+    "name": "Ulrych Jakub",
+    "secret": "2ptfhb"
+  },
+  "25": {
+    "id": 25,
+    "name": "Záruba Daniel",
+    "secret": "d55zv6"
+  },
+  "26": {
+    "id": 26,
+    "name": "Beauxis Oliver",
+    "secret": "e43ep4"
+  },
+  "27": {
+    "id": 27,
+    "name": "Dao Maxmilián",
+    "secret": "6k86bu"
+  },
+  "28": {
+    "id": 28,
+    "name": "Divíšek Lukáš",
+    "secret": "ye9td6"
+  },
+  "29": {
+    "id": 29,
+    "name": "Endál Marek",
+    "secret": "wh3k49"
+  },
+  "30": {
+    "id": 30,
+    "name": "Erlebach Nikolas",
+    "secret": "rjv559"
+  },
+  "31": {
+    "id": 31,
+    "name": "Kašpar Simon",
+    "secret": "5mtq2t"
+  },
+  "32": {
+    "id": 32,
+    "name": "Lacina Jakub",
+    "secret": "3b94dz"
+  },
+  "33": {
+    "id": 33,
+    "name": "Lang Lukáš",
+    "secret": "2hr82f"
+  },
+  "34": {
+    "id": 34,
+    "name": "Lipert Adam Pavel",
+    "secret": "yyr3kq"
+  },
+  "35": {
+    "id": 35,
+    "name": "Matula Václav",
+    "secret": "g34fj9"
+  },
+  "36": {
+    "id": 36,
+    "name": "Stefurak Kristian",
+    "secret": "u993zn"
+  },
+  "37": {
+    "id": 37,
+    "name": "Truhlář Martin",
+    "secret": "nb95k5"
+  },
+  "38": {
+    "id": 38,
+    "name": "Vosátka Daniel",
+    "secret": "5ma8xk"
+  },
+  "39": {
+    "id": 39,
+    "name": "Zárowny Adam",
+    "secret": "qb693n"
+  },
+  "40": {
+    "id": 40,
+    "name": "Bím Adam",
+    "secret": "kt27r8"
+  },
+  "41": {
+    "id": 41,
+    "name": "Bostan David",
+    "secret": "83xy34"
+  },
+  "42": {
+    "id": 42,
+    "name": "Čermák Jan",
+    "secret": "2b4fng"
+  },
+  "43": {
+    "id": 43,
+    "name": "Fujera Tomáš",
+    "secret": "5sq26q"
+  },
+  "44": {
+    "id": 44,
+    "name": "Kucer Filip",
+    "secret": "ehxsqa"
+  },
+  "45": {
+    "id": 45,
+    "name": "Lengauer Patrik",
+    "secret": "7xg25c"
+  },
+  "46": {
+    "id": 46,
+    "name": "Liška Ladislav",
+    "secret": "xqv6qj"
+  },
+  "47": {
+    "id": 47,
+    "name": "Mátl Daniel",
+    "secret": "p6h3du"
+  },
+  "48": {
+    "id": 48,
+    "name": "Nidecký Petr",
+    "secret": "4rfuwq"
+  },
+  "49": {
+    "id": 49,
+    "name": "Plášil Karel",
+    "secret": "b88yxd"
+  },
+  "50": {
+    "id": 50,
+    "name": "Rosa Josef",
+    "secret": "fb5ge6"
+  },
+  "51": {
+    "id": 51,
+    "name": "Rybníček Jakub",
+    "secret": "kbf697"
+  },
+  "52": {
+    "id": 52,
+    "name": "Slovák Patrik",
+    "secret": "r2d652"
+  },
+  "53": {
+    "id": 53,
+    "name": "Virt Vítězslav",
+    "secret": "g32jpq"
+  }
+}
