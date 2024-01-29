@@ -12,6 +12,7 @@ class RecipeAddController extends MainController
         );
         $recipe
             ->validate()
+            ->validateAuthor()
             ->insertToDb();
         $this->res
             ->set('stat', 'ok')

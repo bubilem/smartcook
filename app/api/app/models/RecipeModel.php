@@ -2,7 +2,6 @@
 
 class RecipeModel extends MainModel
 {
-    private bool $valid;
     private ?StructureModel $strc;
     private ?UserModel $user;
 
@@ -11,7 +10,6 @@ class RecipeModel extends MainModel
         ?StructureModel $strc = null,
         ?UserModel $user = null
     ) {
-        $this->valid = false;
         $this->data = $data;
         $this->strc = $strc;
         $this->user = $user;
@@ -20,6 +18,9 @@ class RecipeModel extends MainModel
     public function loadFromDb(int $id): static
     {
         /* MAIN RECIPE DATA */
+        if (!$id) {
+            throw new Exception("No id for recipe loading.");
+        }
         $this->data = [];
         $data = DB::query("SELECT * FROM recipe WHERE id = :id", ["id" => $id])
             ->fetchAll();
@@ -27,6 +28,14 @@ class RecipeModel extends MainModel
             throw new Exception("Recipe load err: Recipe not found.");
         }
         $this->data = $data[0];
+        return $this;
+    }
+
+    public function fullLoadFromDb(int $id): static
+    {
+        /* MAIN RECIPE DATA */
+        $this->loadFromDb($id);
+
         /* DISH CATEGORY */
         $values = [];
         $data = DB::query("SELECT dish_category_id 'dc_id' FROM recipe_has_dish_category WHERE recipe_id = :id", ["id" => $id])->fetchAll();
@@ -85,7 +94,7 @@ class RecipeModel extends MainModel
             );
             $id = (int) DB::lastInsertId();
             if (!$id) {
-                throw new Exception("Recipe add: error while inserting recipe record");
+                throw new Exception("error while inserting recipe record");
             }
             $this->set("id", $id);
 
@@ -144,8 +153,22 @@ class RecipeModel extends MainModel
             DB::query("COMMIT");
         } catch (Exception $e) {
             DB::query("ROLLBACK");
-            throw new Exception($e->getMessage());
+            throw new Exception('Recipe add: ' . $e->getMessage());
         }
+        return $this;
+    }
+
+    public function removeFromDb(): static
+    {
+        try {
+            DB::query(
+                "DELETE FROM recipe WHERE id = :id",
+                ['id' => (int) $this->get("id")]
+            );
+        } catch (Exception $e) {
+            throw new Exception('Recipe remove: ' . $e->getMessage());
+        }
+        $this->data = [];
         return $this;
     }
 
@@ -156,9 +179,6 @@ class RecipeModel extends MainModel
         }
         if (empty($this->data['author'])) {
             throw new Exception("Recipe: author is missing");
-        }
-        if ($this->data['author'] != $this->user->get("name")) {
-            throw new Exception("Recipe: author of the recipe does not match the sender of the request");
         }
         if (empty($this->data['name'])) {
             throw new Exception("Recipe: name is missing or empty");
@@ -221,6 +241,17 @@ class RecipeModel extends MainModel
         foreach ($this->data["ingredient"] as $value) {
             $ingredient = new IngredientModel($value, $this->strc);
             $ingredient->validate();
+        }
+        return $this;
+    }
+
+    public function validateAuthor(): static
+    {
+        if (empty($this->data['author'])) {
+            throw new Exception("Recipe: author is missing");
+        }
+        if ($this->data['author'] != $this->user->get("name")) {
+            throw new Exception("Recipe: author of the recipe does not match the sender of the request");
         }
         return $this;
     }

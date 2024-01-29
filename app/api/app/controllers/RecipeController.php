@@ -9,7 +9,7 @@ class RecipeController extends MainController
         if (!$id) {
             throw new Exception("No recipe id.");
         }
-        $recipe = (new RecipeModel(strc: new StructureModel))->loadFromDb($id);
+        $recipe = (new RecipeModel(strc: new StructureModel))->fullLoadFromDb($id);
         $this->res
             ->set('stat', 'ok')
             ->set('data', $recipe->dataToExport());

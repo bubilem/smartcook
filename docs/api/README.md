@@ -11,6 +11,7 @@ SmartCook API is a school project that can manage a database of recipes accordin
   - [structure](req-structure.md)
   - [recipe-validate](req-recipe-validate.md)
   - [recipe-add](req-recipe-add.md)
+  - [recipe-remove](req-recipe-remove.md)
 - [Signature](signature.md)
 - Data structure:
   - [recipe](strct-recipe.md)
