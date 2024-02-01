@@ -61,7 +61,7 @@ https://www.smartcook-project.eu/api/structure
     },
     "user": 0,
     "time": 1704308174,
-    "sign": "fa895788fca2d1ca69325f36f94e18ec0fd0efd7b6a633401d1561283a50e914"
+    "sign": "fa89...e914"
 }
 ```
 

@@ -16,6 +16,7 @@ class RecipeAddController extends MainController
             ->insertToDb();
         $this->res
             ->set('stat', 'ok')
-            ->set('mess', "Recipe (new id=" . $recipe->get("id") . ") is saved");
+            ->set('mess', "Recipe has been added")
+            ->set('data', ['recipe_id' => (int) $recipe->get("id")]);
     }
 }

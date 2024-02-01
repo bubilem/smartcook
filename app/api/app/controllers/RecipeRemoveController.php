@@ -17,6 +17,7 @@ class RecipeRemoveController extends MainController
 
         $this->res
             ->set('stat', 'ok')
-            ->set('mess', "Recipe id=$recipe_id was removed");
+            ->set('mess', "Recipe was removed")
+            ->set('data', ['recipe_id' => $recipe_id]);
     }
 }

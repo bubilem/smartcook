@@ -1,4 +1,4 @@
-# Request: Recipe validate
+# Request: RECIPE-VALIDATE
 
 Checks if the input recipe is valid.
 
@@ -55,7 +55,8 @@ post json data:
         "author": "Test User"
     },
     "user": 1,
-    "time": "1704647091"
+    "time": 1704293201,
+    "sign": "be8b...a46f"
 }
 ```
 

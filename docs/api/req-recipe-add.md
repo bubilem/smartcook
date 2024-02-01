@@ -1,4 +1,4 @@
-# Request: Add new recipe
+# Request: RECIPE-ADD
 
 System checks if the input recipe is valid and adds it to the database.
 
@@ -55,7 +55,8 @@ post json data:
         "author": "Test User"
     },
     "user": 1,
-    "time": "1704647091"
+    "time": 1704293201,
+    "sign": "be8b...a46f"
 }
 ```
 
@@ -64,7 +65,8 @@ post json data:
 ```
 {
     "stat": "ok",
-    "mess": "Recipe (new id=1) is saved",
+    "mess": "Recipe has been added",
+    "data": { "recipe_id": 1 }
     "user": 0,
     "time": 1704647091,
     "sign": "e774c5cd79ea039a75aefec6e823f528a61d9466d6b5cead047930af0510581e"

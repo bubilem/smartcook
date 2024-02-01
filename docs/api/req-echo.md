@@ -1,4 +1,4 @@
-# Request: Echo
+# Request: ECHO
 
 It is possible to send data to the server, the server verifies the request with the data and sends it back signed. The client can thus try sending and validateing data.
 
@@ -17,7 +17,7 @@ post json data:
     "mess": "Hello there",
     "user": 1,
     "time": 1704293201,
-    "sign": "be8b02e75e37cfc7aeddc4d0efcdc2310f5bfe4e288bc4bfb98070104776a46f"
+    "sign": "be8b...a46f"
 }
 ```
 
