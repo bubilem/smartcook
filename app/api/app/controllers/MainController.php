@@ -12,7 +12,7 @@ abstract class MainController
         $this->res = $res ?? new ResponseModel;
     }
 
-    public abstract function do (): void;
+    public abstract function do(): void;
 
     public function __toString(): string
     {

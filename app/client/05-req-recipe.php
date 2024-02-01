@@ -9,7 +9,7 @@ $data = [
     "user" => 1,
     "time" => time()
 ];
-$data['sign'] = create_signature($data, "5cbut4");
+$data['sign'] = create_signature($data, "xxx");
 
 
 try {
