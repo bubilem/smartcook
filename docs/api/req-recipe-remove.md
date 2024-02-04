@@ -1,5 +1,7 @@
 # Request: RECIPE-REMOVE
 
+[HOME](README.md)
+
 The system deletes the recipe according to the entered id from the database. The author of the recipe must match the author of the deletion request.
 
 ## Request:

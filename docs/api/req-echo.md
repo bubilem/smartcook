@@ -1,5 +1,7 @@
 # Request: ECHO
 
+[HOME](README.md)
+
 It is possible to send data to the server, the server verifies the request with the data and sends it back signed. The client can thus try sending and validateing data.
 
 ## Request:

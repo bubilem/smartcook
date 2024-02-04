@@ -1,5 +1,7 @@
 # Request: RECIPE-VALIDATE
 
+[HOME](README.md)
+
 Checks if the input recipe is valid.
 
 ## Request:

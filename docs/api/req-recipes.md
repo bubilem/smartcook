@@ -1,5 +1,7 @@
 # Request: RECIPES
 
+[HOME](README.md)
+
 Endpoint _recipe_ is used to obtain complete information about one selected recipe.
 
 **Important**: Filters, attributes are WIP now.

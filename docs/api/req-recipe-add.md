@@ -1,5 +1,7 @@
 # Request: RECIPE-ADD
 
+[HOME](README.md)
+
 System checks if the input recipe is valid and adds it to the database.
 
 ## Request:

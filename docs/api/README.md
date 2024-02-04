@@ -4,8 +4,8 @@ SmartCook API is a school project that can manage a database of recipes accordin
 
 ## Chapters
 
-- [Response](response.md)
-- Requests:
+- ### [Response](response.md)
+- ### Requests
   - [default](req-default.md)
   - [echo](req-echo.md)
   - [structure](req-structure.md)
@@ -14,7 +14,8 @@ SmartCook API is a school project that can manage a database of recipes accordin
   - [recipe-add](req-recipe-add.md)
   - [recipe-remove](req-recipe-remove.md)
   - [recipes](req-recipes.md)
-- [Signature](signature.md)
-- Data structure:
+- ### [Signature](signature.md)
+- ### Data structure
   - [recipe](strct-recipe.md)
   - [ingredient](strct-ingredient.md)
+- ### [Client side](client.md)
