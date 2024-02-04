@@ -4,8 +4,6 @@
 
 Endpoint _recipe_ is used to obtain complete information about one selected recipe.
 
-**Important**: Filters, attributes are WIP now.
-
 ## Request:
 
 url:
@@ -33,6 +31,12 @@ post json data:
     "sign": "be8b...a46f"
 }
 ```
+
+Supported **attributes**: `id`, `name`, `difficulty`, `duration`, `price`, `description`, `country`, `author`
+
+Supported **filters**: `author`, `dish_category`, `recipe_category`, `difficulty`, `price`, `price`, `ingredient`
+
+**Important**: _Ingredients_ in filters are Work In Progress now.
 
 ## Response example:
 

@@ -1,7 +1,13 @@
 <?php
 require_once("SmartCookClient.php");
 
-$request_data = [];
+$request_data = [
+    "attributes" => ["id", "name", "author"],
+    "filter" => [
+        "author" => ["Test User"],
+        "dish_category" => [4, 5],
+    ]
+];
 
 try {
     (new SmartCookClient)

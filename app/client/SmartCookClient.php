@@ -32,7 +32,7 @@ class SmartCookClient
     private const SENDER = [
         "id" => 1,
         "name" => "Test User",
-        "secret" => "testus"
+        "secret" => "******"
     ];
 
     /**
