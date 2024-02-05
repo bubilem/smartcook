@@ -54,6 +54,10 @@ class RecipesController extends MainController
                 if (!in_array($name, self::FILTERS)) {
                     throw new Exception("Not supported filter name: $name");
                 }
+                if (empty($val)) {
+                    /* empty values pass and jump to next attribute... */
+                    continue;
+                }
                 if (!is_array($val)) {
                     throw new Exception("Not supported filter value type for: $val, it must be an array.");
                 }
