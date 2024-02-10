@@ -2,7 +2,7 @@
 
 [HOME](README.md)
 
-Endpoint _recipe_ is used to obtain complete information about one selected recipe.
+Endpoint _recipes_ is used to obtain list of recipes. For the recipe list, you can select and determine the order of attributes, as well as select recipes according to the filter settings.
 
 ## Request:
 
@@ -32,7 +32,7 @@ post json data:
 }
 ```
 
-Supported **attributes**: `id`, `name`, `difficulty`, `duration`, `price`, `description`, `country`, `author`
+Supported **attributes**: `id` (default), `name` (default), `difficulty`, `duration`, `price`, `description`, `country`, `author`
 
 Supported **filters**: `author`, `dish_category`, `recipe_category`, `difficulty`, `price`, `price`, `ingredient`
 
