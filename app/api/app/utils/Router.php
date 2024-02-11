@@ -15,6 +15,7 @@ class Router
             case 'recipe-remove':
             case 'recipes':
             case 'authors':
+            case 'ingredients':
             case 'test':
                 echo new(str_replace("-", "", ucwords($endpoint, "-")) . "Controller")(req: $req);
                 break;
