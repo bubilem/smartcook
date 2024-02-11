@@ -20,7 +20,8 @@ class RecipesController extends MainController
         "recipe_category",
         "difficulty",
         "price",
-        "tolerance"
+        "tolerance",
+        "ingredient"
     ];
 
     public function do(): void
@@ -101,6 +102,15 @@ class RecipesController extends MainController
                         }
                         $q_from .= " JOIN recipe_has_tolerance rht ON r.id = rht.recipe_id";
                         $q_where .= ($q_where ? " AND " : "") . "rht.tolerance_id IN (" . implode(",", $val) . ")";
+                        break;
+                    case "ingredient":
+                        foreach ($val as $v) {
+                            if (!is_int($v) || $v < 0) {
+                                throw new Exception("Ingredient value must be a positive integer.");
+                            }
+                        }
+                        $q_from .= " JOIN recipe_has_ingredient rhi ON r.id = rhi.recipe_id";
+                        $q_where .= ($q_where ? " AND " : "") . "rhi.ingredient_id IN (" . implode(",", $val) . ")";
                         break;
                 }
             }

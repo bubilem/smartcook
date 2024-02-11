@@ -36,8 +36,6 @@ Supported **attributes**: `id` (default), `name` (default), `difficulty`, `durat
 
 Supported **filters**: `author`, `dish_category`, `recipe_category`, `difficulty`, `price`, `price`, `ingredient`
 
-**Important**: _Ingredients_ in filters are Work In Progress now.
-
 ## Response example:
 
 ```
