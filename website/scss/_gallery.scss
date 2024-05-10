@@ -1,0 +1,25 @@
+.gallery {
+  margin: 2rem 0;
+  > img {
+    border-radius: 0.5em;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  &.column-2 {
+    column-gap: 1rem;
+    column-count: 1;
+    @media screen and (min-width: 800px) {
+      column-count: 2;
+    }
+  }
+  &.column-3 {
+    column-gap: 1rem;
+    column-count: 1;
+    @media screen and (min-width: 800px) {
+      column-count: 2;
+    }
+    @media screen and (min-width: 1600px) {
+      column-count: 3;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+body > div {
+  margin: 2em 0;
+  padding: 0 2em;
+  display: grid;
+  grid-template-columns: auto max-content;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+  gap: 2em;
+}
+
+.container {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}

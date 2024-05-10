@@ -1,0 +1,44 @@
+.articles {
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+  a {
+    border-radius: 0.6em;
+    padding: 1em;
+    transition: all 0.25s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.2);
+    > h2 {
+      color: #fff;
+      font-size: 1.2em;
+      margin: 0.5rem 0;
+    }
+    > p {
+      z-index: 99;
+      font-size: 0.9em;
+      margin: 0.5rem 0;
+      text-align: left;
+      &.date {
+        font-size: 1em;
+        font-family: "Gluten", cursive;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+article {
+  h2 {
+    margin: 2em 0 0.5em 0;
+  }
+  > p {
+    column-count: 1;
+    column-gap: 2rem;
+    @media screen and (min-width: 800px) {
+      column-count: 2;
+    }
+  }
+}

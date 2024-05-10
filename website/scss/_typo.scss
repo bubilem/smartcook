@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 400;
+  color: #eee;
+  background: $color-bg
+    linear-gradient(-5deg, $color-bg 66%, darken($color-bg, 5%) 90%) fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Gluten", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.5em;
+}
+
+p {
+  margin: 1em 0;
+  text-align: justify;
+  line-height: 1.3em;
+}
+
+a {
+  text-decoration: none;
+  color: $color-a;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  li {
+    margin: 0.5em 0 0.5em 2em;
+  }
+}
