@@ -3,5 +3,10 @@
     "id": 0,
     "name": "SmartCook",
     "secret": "smrtck"
+  },
+  "1": {
+    "id": 1,
+    "name": "Test User",
+    "secret": "****"
   }
 }

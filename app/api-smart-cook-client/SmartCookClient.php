@@ -23,8 +23,9 @@ class SmartCookClient
     /**
      * URL to API
      * https://www.smartcook-project.eu/api/
+     * http://www/smartcook/app/api/
      */
-    private const URL = "http://www/smartcook/app/api/";
+    private const URL = "https://www.smartcook-project.eu/api/";
 
     /**
      * The user who sends requests to the API
@@ -32,7 +33,7 @@ class SmartCookClient
     private const SENDER = [
         "id" => 1,
         "name" => "Test User",
-        "secret" => "******"
+        "secret" => "****"
     ];
 
     /**
