@@ -1,40 +1,42 @@
 header {
   margin: 0 0 2em 0;
   padding: 2em;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1em;
-  justify-content: space-between;
-  align-items: center;
+  > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
 
-  @media screen and (max-width: 400px) {
-    flex-direction: column;
-    justify-content: center;
-  }
+    @media screen and (max-width: 400px) {
+      flex-direction: column;
+      justify-content: center;
+    }
 
-  .logo {
-    a {
-      svg {
-        height: 8em;
-        transition: all 0.25s ease-in-out;
-        fill: darken($color-a, 10%);
-      }
-      &:hover svg {
-        fill: darken($color-a, 15%);
-        transform: rotate(-10deg);
+    .logo {
+      a {
+        svg {
+          height: 9em;
+          transition: all 0.25s ease-in-out;
+          fill: darken($color-a, 10%);
+        }
+        &:hover svg {
+          fill: darken($color-a, 15%);
+          transform: rotate(-10deg);
+        }
       }
     }
-  }
-  .motto {
-    h2 {
-      font-size: 1.6em;
-      text-align: right;
-    }
-    p {
-      font-size: 0.8em;
-      text-align: right;
-      margin: 0;
+    .motto {
+      h2 {
+        font-size: 1.6em;
+        text-align: right;
+      }
+      p {
+        font-size: 0.8em;
+        text-align: right;
+        margin: 0;
+      }
     }
   }
 }
