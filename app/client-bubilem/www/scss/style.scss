@@ -1,0 +1,9 @@
+$color-bg: rgb(56, 48, 48); //#483e37;
+$color-a: rgb(238, 68, 119);
+
+@import "typo";
+@import "header";
+@import "footer";
+@import "recipes_filter";
+@import "recipes_grid";
+@import "recipes_detail";

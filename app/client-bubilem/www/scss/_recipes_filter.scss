@@ -1,0 +1,11 @@
+nav#recipe-category-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  button.active {
+    background-color: darken($color-a, 10%);
+    padding: 0.9em 0.75em 0.75em 0.75em;
+  }
+}

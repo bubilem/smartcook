@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="https://www.smartcook-project.eu/client/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartCook Recipes</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="www/css/style.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href=""
+            ><img src="www/img/smartcook-logo.png" alt="SmartCook logo"
+          /></a>
+        </div>
+        <div class="motto">
+          <h1>Recipes</h1>
+          <p>Erasmus+ students project<br />for better food in your life</p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        {nav-recipe-category}
+        <div id="recipes"></div>
+        <div id="recipe"></div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; SmartCook - {datetime}</p>
+      </div>
+    </footer>
+    <script src="www/js/script.js"></script>
+  </body>
+</html>

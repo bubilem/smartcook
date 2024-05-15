@@ -1,0 +1,56 @@
+<div class="window">
+  <div class="container">
+    <div class="recipe-detail">
+      <div class="header">
+        <p>Enjoy our recipe...</p>
+        <div>
+          <button class="add">add recipe to list</button>
+          <button id="hide_recipe" onclick="hide_recipe()">hide recipe</button>
+        </div>
+      </div>
+      <h2>{name}</h2>
+      <table>
+        <tr>
+          <th>difficulty</th>
+          <td>{difficulty}</td>
+        </tr>
+        <tr>
+          <th>duration</th>
+          <td>{duration} minutes</td>
+        </tr>
+        <tr>
+          <th>price</th>
+          <td>{price}</td>
+        </tr>
+        <tr>
+          <th>country</th>
+          <td>{country}</td>
+        </tr>
+        <tr>
+          <th>dttm</th>
+          <td>{dttm}</td>
+        </tr>
+        <tr>
+          <th>author</th>
+          <td>{author}</td>
+        </tr>
+        <tr>
+          <th>dish category</th>
+          <td>{dish_category}</td>
+        </tr>
+        <tr>
+          <th>recipe category</th>
+          <td>{recipe_category}</td>
+        </tr>
+        <tr>
+          <th>tolerance</th>
+          <td>{tolerance}</td>
+        </tr>
+      </table>
+      <h3>Description</h3>
+      <p>{description}</p>
+      <h3>Ingredients</h3>
+      <div class="ingredients">{ingredients}</div>
+    </div>
+  </div>
+</div>
