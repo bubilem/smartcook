@@ -16,8 +16,9 @@ class Router
             case 'recipes':
             case 'authors':
             case 'ingredients':
+            case 'image':
             case 'test':
-                echo new(str_replace("-", "", ucwords($endpoint, "-")) . "Controller")(req: $req);
+                echo new (str_replace("-", "", ucwords($endpoint, "-")) . "Controller")(req: $req);
                 break;
             default:
                 echo new DefaultController(req: $req);
