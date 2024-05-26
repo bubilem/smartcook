@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Cookie&family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #eee;
+  background: $color-bg url("../img/bg_landscape.webp") no-repeat top center
+    fixed;
+  background-size: cover;
+  @media screen and (orientation: portrait) {
+    background: $color-bg url("../img/bg_portrait.webp") no-repeat top center
+      fixed;
+    background-size: cover;
+  }
+}
+
+.container {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main {
+  margin: 2em 0;
+  padding: 2em;
+}
+
+p {
+  margin: 1em 0;
+  text-align: justify;
+  line-height: 1.1em;
+}
+
+a {
+  text-decoration: none;
+  color: $color-a;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.btn,
+button {
+  font-family: "Gluten", cursive;
+  font-size: 1em;
+  font-weight: 400;
+  color: #fff;
+  background-color: $color-a;
+  padding: 0.5em 0.75em;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: all 0.33s ease-in-out;
+  &:hover {
+    background-color: darken($color-a, 10%);
+    text-decoration: none;
+  }
+}

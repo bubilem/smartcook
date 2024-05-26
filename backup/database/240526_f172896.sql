@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1:3306
--- Vytvořeno: Ned 26. kvě 2024, 09:34
+-- Vytvořeno: Ned 26. kvě 2024, 17:08
 -- Verze serveru: 8.0.31
 -- Verze PHP: 8.2.0
 
@@ -302,7 +302,7 @@ INSERT INTO `recipe` (`id`, `name`, `difficulty`, `duration`, `price`, `descript
 (51, 'Grilled Salmon with Lemon and Dill', 2, 20, 2, 'A healthy and flavorful dinner option. Marinate salmon with lemon, dill, salt, and pepper. Grill until the fish is cooked through. Serve with a side of steamed vegetables or salad.', 'NO', '2024-02-11 23:39:05', 'Šeps Roman'),
 (52, 'Borscht', 1, 60, 1, 'Make beef stock. Boil vegetable and add the beef stock. Add Sour cream or mayoneise.', 'uk', '2024-02-11 23:53:09', 'Liška Ladislav'),
 (53, 'Spaghetti Carbonara', 2, 15, 2, 'Put a large pot of salted water on to boil. While the water is coming to a boil, heatn olive oil in a large pan over medium heat. Add the pancetta and cook slowly until crispy. In a medium sized bowl, beat the egg yolks together and then beat in the freshly grated parmesan and add a little bit of pepper. Once the water has reached a rolling boil, add the dry pasta, and cook. When the pasta is ready, lift it from the water with a pasta fork or tongs and put it in the frying pan with the pancetta. Take the pan of spaghetti and pancetta off the heat. Now quickly pour in the eggs and cheese. Add extra pasta cooking water to keep it saucy. Use a long-pronged fork to twist the pasta on to the serving plate or bowl. Serve immediately with a little sprinkling of the remaining cheese and a grating of pepper.', 'it', '2024-02-11 23:58:00', 'Endál Marek'),
-(54, 'sushi', 2, 30, 1, 'Place a bamboo sushi mat on a clean surface and cover it with plastic wrap.\r\nPlace a sheet of nori, shiny side down, on the mat. Wet your hands with a mixture of water and rice vinegar to prevent sticking. Spread a thin, even layer of sushi rice over the nori, leaving about 1 inch at the top edge of the nori sheet uncovered. Place a few thin slices of fresh salmon across the center of the rice. Using the bamboo mat, start rolling the sushi away from you, applying gentle pressure to keep the roll tight. Roll until the exposed edge of the nori seals the roll. Remove the bamboo mat and use a sharp knife to slice the roll into bite-sized pieces. Wipe the knife with a damp cloth between cuts to ensure clean lices.', 'jp', '2024-02-12 00:23:59', 'Lacina Jakub'),
+(54, 'Sushi', 2, 30, 1, 'Place a bamboo sushi mat on a clean surface and cover it with plastic wrap.\r\nPlace a sheet of nori, shiny side down, on the mat. Wet your hands with a mixture of water and rice vinegar to prevent sticking. Spread a thin, even layer of sushi rice over the nori, leaving about 1 inch at the top edge of the nori sheet uncovered. Place a few thin slices of fresh salmon across the center of the rice. Using the bamboo mat, start rolling the sushi away from you, applying gentle pressure to keep the roll tight. Roll until the exposed edge of the nori seals the roll. Remove the bamboo mat and use a sharp knife to slice the roll into bite-sized pieces. Wipe the knife with a damp cloth between cuts to ensure clean lices.', 'jp', '2024-02-12 00:23:59', 'Lacina Jakub'),
 (55, 'Avocado Toast with Chickpea Scramble', 2, 15, 2, 'A delicious and nutritious breakfast option. Top whole-grain toast with mashed avocado and a flavorful chickpea scramble. Season with salt, pepper, and your favorite spices for an extra kick.', 'au', '2024-02-12 03:06:01', 'Razák Josef'),
 (56, 'Vegetarian Lentil Soup', 3, 45, 3, 'A hearty and wholesome vegetarian soup. Cook lentils, vegetables, and spices in vegetable broth. Season with herbs like thyme and rosemary. Serve hot for a satisfying meal.', 'uk', '2024-02-12 03:19:05', 'Razák Josef'),
 (57, 'Mushroom Risotto', 3, 30, 2, 'A creamy and flavorful mushroom risotto. Sauté mushrooms, onions, and garlic, then add Arborio rice and vegetable broth. Stir until the rice is cooked and creamy. Garnish with fresh herbs and vegan Parmesan cheese.', 'IT', '2024-02-12 03:26:53', 'Razák Josef'),
@@ -314,7 +314,7 @@ INSERT INTO `recipe` (`id`, `name`, `difficulty`, `duration`, `price`, `descript
 (64, 'Bone broth', 3, 130, 2, 'We get washed bones into the pot, add cold water and let it cook for about 2 hours. After that we remove bones and filer the Broth throw net. Into clear Broth we add Masox, cutted Parsley, add Peper, Salt, then we cook it until the Parsley is soft. Into Broth we add any kind of Dumplings after that we can add some Chive.', 'CZ', '2024-02-25 21:05:31', 'Brož Matyáš'),
 (65, 'Wasp Nest', 1, 10, 2, 'We will prepare a popular christmas cookies called wasp nests. For dough, you\'ll need a wasp nest form, approximately 160 g of crushed sponge biscuits, 160 g of icing sugar, 60 g of warmed up butter, 15 g of cocoa, 2 spoons of rum, eggwhite from 1 egg, and a bit of cinnamon and star anyse. You\'ll mix all of these together to make the dough. Then you\'ll make a small ball out of it and push it into the form. Then use either you finger or wooden spoon to make a hole into the dough so it\'s only on the sides. For filling, you\'ll need 80 g of butter, 10 g of vanilla sugar, 20 g of icing sugar, and 1 spoon of rum. Then you\'ll mix all of these together, and you\'ll put the mixed filling into the dough hole you\'ve made in the form. For the whole completion you\'ll only need 1 piece of sponge biscuit for 1 wasp nest which you\'ll put on the down side of the form, and then you\'ll put it whole out of the form. Put it into the fridge for approximately 1 hour. After all this it\'s ready to serve. This receipe is for about 30 pieces of wasp nests.', 'uk', '2024-02-28 19:37:50', 'Nidecký Petr'),
 (66, 'Mixed eggs', 1, 5, 1, 'Easy breakfast or dinner, when you just cook eggs with onion. You can add some kind of ham if you want.', 'cs', '2024-02-28 19:48:09', 'Bím Adam'),
-(69, 'COLESLAW SALAD', 1, 5, 1, 'Make the dressing\n    The secret to a fantastic coleslaw is in the dressing. To make the dressing put the mayonnaise, sour cream, mustard, vinegar, sugar and salt and pepper into a small bowl and combine with a large spoon until the mix forms a rich, creamy dressing.\n    Add the dressing to the vegetables\n    Put the cabbage into a bigger bowl, then the carrots and finally the spring onions. Mix all the vegetables up and then pour the dressing on top. Mix together again until all the vegetables are smothered in dressing.\n    Cover and chill\n    Next, cover your coleslaw with cling film and put it in the fridge for an hour to chill slightly. This will allow the vegetables to marinate in the dressing, which will make it taste even better.\n    Serve', 'uk', '2024-02-28 21:36:30', 'Rosa Josef'),
+(69, 'Coleslaw salad', 1, 5, 1, 'The secret to a fantastic coleslaw is in the dressing. To make the dressing put the mayonnaise, sour cream, mustard, vinegar, sugar and salt and pepper into a small bowl and combine with a large spoon until the mix forms a rich, creamy dressing. Add the dressing to the vegetables. Put the cabbage into a bigger bowl, then the carrots and finally the spring onions. Mix all the vegetables up and then pour the dressing on top. Mix together again until all the vegetables are smothered in dressing. Next, cover your coleslaw with cling film and put it in the fridge for an hour to chill slightly. This will allow the vegetables to marinate in the dressing, which will make it taste even better. Serve.', 'uk', '2024-02-28 21:36:30', 'Rosa Josef'),
 (70, 'Elbow pasta with eggs', 1, 20, 1, 'Boil the pasta on medium heat until the pasta is soft. Pour water out from the pot, then mix it with eggs on pan. Add salt and spices and mix well.Serve immediately.', 'cz', '2024-02-28 21:45:15', 'Kucer Filip'),
 (71, 'Spaghetti with ketchup and cheese', 1, 5, 1, 'Easy boiled spaghetti with ketchup and grated cheese.', 'cs', '2024-02-29 17:44:44', 'Bím Adam'),
 (72, 'Waffle', 2, 30, 1, 'We will prepare traditional waffles. We will need 300 ml of milk, a pinch of salt, 24 g of sugar, 300 grams of plain wheat flour, one packet of baking powder, a piece of butter to grease the molds, and 2 eggs. For decoration and better taste, you can prepare fruit and powdered sugar, if necessary, maple syrup.', 'cz', '2024-02-29 18:44:01', 'Fujera Tomáš'),
@@ -478,18 +478,17 @@ INSERT INTO `recipe_has_dish_category` (`recipe_id`, `dish_category_id`) VALUES
 (23, 4),
 (24, 2),
 (25, 1),
-(26, 1),
+(26, 3),
 (26, 5),
 (27, 3),
 (28, 5),
 (29, 1),
 (29, 5),
-(30, 1),
+(30, 3),
 (30, 5),
 (31, 1),
 (31, 5),
-(32, 1),
-(32, 3),
+(32, 4),
 (33, 2),
 (33, 5),
 (34, 1),
@@ -511,6 +510,7 @@ INSERT INTO `recipe_has_dish_category` (`recipe_id`, `dish_category_id`) VALUES
 (52, 2),
 (53, 3),
 (54, 3),
+(54, 5),
 (55, 1),
 (56, 2),
 (57, 3),
