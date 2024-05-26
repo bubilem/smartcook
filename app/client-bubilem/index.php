@@ -8,12 +8,16 @@
  * 
  */
 
-require_once "app/Template.php";
+require_once __DIR__ . "/conf.php";
+require_once __DIR__ . "/app/Template.php";
+
 echo (
     new Template(
         "view/page.html",
         [
-            'nav-recipe-category' => file_get_contents("view/nav-recipe-category.html"),
+            'base' => BASE,
+            'get_url' => BASE . 'get/',
+            'recipe-filter' => file_get_contents("view/recipe-filter.html"),
             'datetime' => date("d. m. Y"),
         ]
     )

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="https://www.smartcook-project.eu/client/" />
+    <base href="{base}" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SmartCook Recipes</title>
@@ -24,7 +24,7 @@
     </header>
     <main>
       <div class="container">
-        {nav-recipe-category}
+        {recipe-filter}
         <div id="recipes"></div>
         <div id="recipe"></div>
       </div>
@@ -34,6 +34,9 @@
         <p>&copy; SmartCook - {datetime}</p>
       </div>
     </footer>
+    <script>
+      const GET_URL = "{get_url}"
+    </script>
     <script src="www/js/script.js"></script>
   </body>
 </html>

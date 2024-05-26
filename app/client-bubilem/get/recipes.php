@@ -6,18 +6,28 @@
  * 
  */
 
-require_once __DIR__ . "/SmartCookClient.php";
+require_once __DIR__ . "/../conf.php";
+require_once __DIR__ . "/../app/SmartCookClient.php";
+$scc = new SmartCookClient(API_URL, API_SENDER, API_SMARTCOOK);
 
 $request_data = ["attributes" => ["id", "name", "description", "author"]];
 $recipeCategory = filter_input(INPUT_GET, "recipe-category", FILTER_SANITIZE_NUMBER_INT);
 if ($recipeCategory) {
     $request_data["filter"]["recipe_category"] = [$recipeCategory];
 }
+$dishCategory = filter_input(INPUT_GET, "dish-category", FILTER_SANITIZE_NUMBER_INT);
+if ($dishCategory) {
+    $request_data["filter"]["dish_category"] = [$dishCategory];
+}
+$tolerance = filter_input(INPUT_GET, "tolerance", FILTER_SANITIZE_NUMBER_INT);
+if ($tolerance) {
+    $request_data["filter"]["tolerance"] = [$tolerance];
+}
+
+require_once __DIR__ . "/../app/SmartCookClient.php";
 try {
-    $data = (new SmartCookClient)
-        ->setRequestData($request_data)
-        ->sendRequest("recipes")
-        ->getResponseData();
+    $data = $scc->setRequestData($request_data)->sendRequest("recipes")->getResponseData();
+    //echo json_encode(count($data['data']));
 } catch (Exception $e) {
     echo $e->getMessage();
 }
@@ -29,7 +39,7 @@ if (empty($data['data'])) {
 $maxlen = 100;
 $recipes = "";
 
-require_once __DIR__ . "/Template.php";
+require_once __DIR__ . "/../app/Template.php";
 $tmpltRecipe = new Template(__DIR__ . "/../view/recipe-thumb.html");
 foreach ($data['data'] as $recipe) {
     if (mb_strlen($recipe["description"]) > $maxlen) {
@@ -38,6 +48,7 @@ foreach ($data['data'] as $recipe) {
     $recipes .= $tmpltRecipe->setData(
         [
             "id" => $recipe["id"],
+            "href" => API_URL . "image/{$recipe["id"]}.webp",
             "name" => ucfirst($recipe["name"]),
             "description" => $desc,
             "author" => $recipe["author"]

@@ -6,17 +6,6 @@
  * Prepared for the simple work of communicating 
  * with the SmartCook API in a PHP application
  * 
- * Example:
- * 
- * try {
- *     (new SmartCookClient)
- *         ->setRequestData(["mess" => "Hello there"])
- *         ->sendRequest("echo")
- *         ->printResponse();
- * } catch (Exception $e) {
- *     echo $e->getMessage();
- * }
- * 
  */
 class SmartCookClient
 {
@@ -24,32 +13,33 @@ class SmartCookClient
      * URL to API
      * https://www.smartcook-project.eu/api/
      */
-    private const URL = "https://www.smartcook-project.eu/api/";
+    private string $URL;
 
     /**
      * The user who sends requests to the API
      */
-    private const SENDER = [
-        "id" => 1,
-        "name" => "Test User",
-        "secret" => "*****"
-    ];
+    private array $SENDER;
 
     /**
      * The user who sends responses from the API
      */
-    private const SMARTCOOK = [
-        "id" => 0,
-        "name" => "SmartCook",
-        "secret" => "smrtck"
-    ];
+    private array $SMARTCOOK;
 
     private array $request_data = [];
     private array $response_data = [];
 
-    public function __construct(array $request_data = [])
+    public function __construct(string $url, array $sender, array $smartcook)
     {
-        $this->setRequestData($request_data);
+        $this->URL = $url;
+        $this->SENDER = $sender;
+        $this->SMARTCOOK = $smartcook;
+    }
+
+    public function clear(): static
+    {
+        $this->request_data = [];
+        $this->response_data = [];
+        return $this;
     }
 
     public function setRequestData(array $request_data): static
@@ -67,9 +57,9 @@ class SmartCookClient
     {
         if (!empty($this->request_data)) {
             $data = $this->request_data;
-            $data["user"] = self::SENDER["id"];
+            $data["user"] = $this->SENDER["id"];
             $data["time"] = time();
-            $data['sign'] = self::createSignature($data, self::SENDER["secret"]);
+            $data['sign'] = self::createSignature($data, $this->SENDER["secret"]);
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         }
         return '';
@@ -77,7 +67,7 @@ class SmartCookClient
 
     public function sendRequest(string $endpoint): static
     {
-        $cUrl = curl_init(self::URL . $endpoint);
+        $cUrl = curl_init($this->URL . $endpoint);
         curl_setopt($cUrl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($cUrl, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($cUrl, CURLOPT_POSTFIELDS, $this->prepareRequestDataToSend());
@@ -106,7 +96,7 @@ class SmartCookClient
     {
         $signature = $this->response_data["sign"] ?? '';
         unset($this->response_data["sign"]);
-        return self::validateData($this->response_data, $signature, self::SMARTCOOK["secret"]);
+        return self::validateData($this->response_data, $signature, $this->SMARTCOOK["secret"]);
     }
 
     public function printResponse(): static

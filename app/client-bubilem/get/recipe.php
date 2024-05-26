@@ -6,14 +6,13 @@
  * 
  */
 
-require_once __DIR__ . "/SmartCookClient.php";
+require_once __DIR__ . "/../conf.php";
+require_once __DIR__ . "/../app/SmartCookClient.php";
+$scc = new SmartCookClient(API_URL, API_SENDER, API_SMARTCOOK);
 
 $request_data["recipe_id"] = filter_input(INPUT_GET, "recipe_id", FILTER_SANITIZE_NUMBER_INT) ?? 0;
 try {
-    $data = (new SmartCookClient)
-        ->setRequestData($request_data)
-        ->sendRequest("recipe")
-        ->getResponseData();
+    $data = $scc->setRequestData($request_data)->sendRequest("recipe")->getResponseData();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
@@ -24,9 +23,7 @@ if (empty($data['data'])) {
 $r = $data['data'];
 
 try {
-    $data = (new SmartCookClient)
-        ->sendRequest("structure")
-        ->getResponseData();
+    $data = $scc->clear()->sendRequest("structure")->getResponseData();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
@@ -54,7 +51,7 @@ foreach ($r['tolerance'] as $key) {
 }
 $tolerance = implode(', ', $tolerance);
 
-require_once __DIR__ . "/Template.php";
+require_once __DIR__ . "/../app/Template.php";
 
 $ingredients = "";
 $tmpltIngredient = new Template(__DIR__ . "/../view/recipe-ingredient.html");
@@ -82,7 +79,8 @@ echo (
             "tolerance" => $tolerance,
             "description" => $r["description"],
             "ingredients" => $ingredients,
-            "data" => json_encode($r, JSON_PRETTY_PRINT)
+            "data" => json_encode($r, JSON_PRETTY_PRINT),
+            "href" => API_URL . "image/{$r["id"]}.webp"
         ]
     )
 )->render();
