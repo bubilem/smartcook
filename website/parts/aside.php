@@ -4,7 +4,8 @@
         <a href="">Home page</a>
         <a href="https://github.com/bubilem/smartcook/tree/main/docs/api">API - documentation</a>
         <a href="https://www.smartcook-project.eu/api">API - application</a>
-        <a href="https://www.smartcook-project.eu/client">CLIENT - application</a>
+        <a href="https://www.smartcook-project.eu/client">CLIENT - Catalog</a>
+        <a href="https://www.smartcook-project.eu/todays-table/">CLIENT - Today's Table</a>
         <a href="https://www.skolavdf.cz">VOŠ, SPŠ a SOŠ Varnsdorf</a>
     </nav>
     <?php
