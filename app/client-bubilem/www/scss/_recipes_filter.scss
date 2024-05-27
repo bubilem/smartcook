@@ -1,6 +1,9 @@
 .filter-main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  @media screen and (max-width: 520px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
   gap: 1em;
   button {
     text-transform: uppercase;
