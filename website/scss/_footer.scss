@@ -1,5 +1,15 @@
 footer {
   margin: 2em 0 0 0;
   padding: 2em;
-  background: darken($color-bg, 5%);
+  color: darken($color-bg, 5%);
+  background: #fff;
+  .fgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    margin: 2em 0;
+    img {
+      width: 100%;
+    }
+  }
 }
