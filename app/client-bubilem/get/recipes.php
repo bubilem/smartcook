@@ -44,6 +44,8 @@ $tmpltRecipe = new Template(__DIR__ . "/../view/recipe-thumb.html");
 foreach ($data['data'] as $recipe) {
     if (mb_strlen($recipe["description"]) > $maxlen) {
         $desc = mb_substr($recipe["description"], 0, $maxlen) . " ...";
+    } else {
+        $desc = $recipe["description"];
     }
     $recipes .= $tmpltRecipe->setData(
         [
