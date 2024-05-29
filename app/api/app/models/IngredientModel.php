@@ -42,14 +42,16 @@ class IngredientModel extends MainModel
                 throw new Exception("Ingredient: id (" . $this->data['id'] . ") is not numeric");
             }
             $result = DB::query(
-                "SELECT id FROM ingredient WHERE id = :id",
+                "SELECT id, name FROM ingredient WHERE id = :id",
                 ["id" => (int) $this->data['id']]
             )->fetchAll();
             if (empty($result)) {
                 throw new Exception("Ingredient: no such id (" . (int) $this->data['id'] . ") in database");
             }
-        }
-        if (empty($this->data['name'])) {
+            if (!empty($this->data['name']) && $this->data['name'] != $result[0]['name']) {
+                throw new Exception("Ingredient: name does not match id value");
+            }
+        } else if (empty($this->data['name'])) {
             throw new Exception("Ingredient: name is missing");
         }
         if ($id = self::getIdByName($this->data["name"])) {
