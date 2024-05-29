@@ -1,0 +1,57 @@
+form {
+  .form-group {
+    margin: 1em 0;
+  }
+  label {
+    display: block;
+  }
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin: 0.25em 0;
+    padding: 0.75em 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+  }
+  input[type="checkbox"] {
+    width: auto;
+  }
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-gap: 0.5em;
+  }
+  .ingredient {
+    padding: 1em;
+    margin: 1em 0;
+    background: #eee;
+    border-radius: 0.5em;
+    > label {
+      margin: 0.5em 0 0 0;
+    }
+    .remove {
+      margin: 1em 0;
+    }
+  }
+
+  input[type="submit"],
+  button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.33s ease-in-out;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #218838;
+  }
+  .remove {
+    background-color: #dc3545;
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+}

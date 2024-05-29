@@ -1,0 +1,46 @@
+<div class="ingredient">
+  <h3>Ingredient</h3>
+  <label
+    >Id:
+    <input type="number" step="1" name="ingredient[{key}][id]" value="{id}" />
+  </label>
+  <label
+    >Name:
+    <input type="text" name="ingredient[{key}][name]" value="{name}" />
+  </label>
+  <label
+    >Quantity:
+    <input
+      type="number"
+      min="0"
+      step="0.01"
+      name="ingredient[{key}][quantity]"
+      value="{quantity}"
+      required
+    />
+  </label>
+  <label
+    >Unit:
+    <select name="ingredient[{key}][unit]" required>
+      <option value="l" {unit_l}>liter</option>
+      <option value="g" {unit_g}>gram</option>
+      <option value="pc" {unit_pc}>piece</option>
+    </select>
+  </label>
+  <label
+    >Necessary:
+    <input
+      type="checkbox"
+      name="ingredient[{key}][necessary]"
+      value="1"
+      {necessary}
+    />
+  </label>
+  <label
+    >Comment:
+    <input type="text" name="ingredient[{key}][comment]" value="{comment}"
+  /></label>
+  <button type="button" class="remove" onclick="removeIngredient(this)">
+    Remove
+  </button>
+</div>

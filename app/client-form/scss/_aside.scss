@@ -1,0 +1,21 @@
+aside {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    color: #444;
+    th {
+      text-align: center;
+      padding: 0.2em;
+      text-align: left;
+    }
+    td {
+      padding: 0.1em 0.2em;
+      border-top: 1px solid #ddd;
+      &:first-of-type,
+      &:last-of-type {
+        text-align: right;
+      }
+    }
+  }
+}

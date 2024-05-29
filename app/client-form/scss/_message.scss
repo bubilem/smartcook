@@ -1,0 +1,31 @@
+.message {
+  width: 100%;
+  padding: 0.5em;
+  margin: 0 0 1em 0;
+  background-color: #eee;
+  border-radius: 0.5em;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    color: #444;
+    th {
+      text-align: left;
+      font-size: 0.8em;
+      font-weight: 400;
+      padding: 0.5em;
+      text-align: left;
+    }
+    td {
+      padding: 0.5em;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+  }
+  &.fail {
+    background-color: #fdd;
+  }
+  &.ok {
+    background-color: #dfd;
+  }
+}

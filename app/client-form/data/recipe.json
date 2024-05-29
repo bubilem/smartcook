@@ -1,0 +1,23 @@
+{
+  "id": "0",
+  "name": "",
+  "difficulty": 1,
+  "duration": "30",
+  "price": 1,
+  "description": "",
+  "country": "cz",
+  "dish_category": [],
+  "recipe_category": [],
+  "tolerance": [],
+  "ingredient": [
+    {
+      "id": "",
+      "name": "",
+      "quantity": 1,
+      "unit": "pc",
+      "necessary": "1",
+      "comment": ""
+    }
+  ],
+  "author": ""
+}
