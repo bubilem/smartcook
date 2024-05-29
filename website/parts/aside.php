@@ -6,6 +6,7 @@
         <a href="https://www.smartcook-project.eu/api">API - application</a>
         <a href="https://www.smartcook-project.eu/client">CLIENT - Catalog</a>
         <a href="https://www.smartcook-project.eu/todays-table/">CLIENT - Today's Table</a>
+        <a href="https://www.smartcook-project.eu/form/">CLIENT - Form</a>
         <a href="https://www.skolavdf.cz">VOŠ, SPŠ a SOŠ Varnsdorf</a>
     </nav>
     <?php
