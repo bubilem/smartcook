@@ -2,11 +2,13 @@
     <h2>Links</h2>
     <nav>
         <a href="">Home page</a>
-        <a href="https://github.com/bubilem/smartcook/tree/main/docs/api">API - documentation</a>
-        <a href="https://www.smartcook-project.eu/api">API - application</a>
-        <a href="https://www.smartcook-project.eu/client">CLIENT - Catalog</a>
+        <a href="https://github.com/bubilem/smartcook">Project Documentation</a>
+        <a href="https://github.com/bubilem/smartcook/tree/main/docs/api">API - Documentation</a>
+        <a href="https://www.smartcook-project.eu/api">API - Application</a>
+        <a href="https://www.smartcook-project.eu/catalog">CLIENT - Catalog</a>
         <a href="https://www.smartcook-project.eu/todays-table/">CLIENT - Today's Table</a>
         <a href="https://www.smartcook-project.eu/form/">CLIENT - Form</a>
+        <a href="https://www.smartcook-project.eu/guess-the-recipe/">CLIENT - Guess the Recipe Game</a>
         <a href="https://www.skolavdf.cz">VOŠ, SPŠ a SOŠ Varnsdorf</a>
     </nav>
     <?php
