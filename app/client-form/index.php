@@ -14,44 +14,46 @@ spl_autoload_register(function (string $className) {
 $r = new Recipe();
 $scc = new SmartCookClient(API_URL, [], API_SMARTCOOK);
 
-if ($_POST['action'] == 'validate recipe' || $_POST['action'] == 'add recipe to the database') {
-    $r->name = filter_input(INPUT_POST, 'name');
-    $r->difficulty = filter_input(INPUT_POST, 'difficulty');
-    $r->duration = filter_input(INPUT_POST, 'duration');
-    $r->price = filter_input(INPUT_POST, 'price');
-    $r->description = filter_input(INPUT_POST, 'description');
-    $r->country = filter_input(INPUT_POST, 'country');
-    $r->ingredient = $_POST['ingredient'] ?? [];
-    $r->dish_category = $_POST['dish_category'] ?? [];
-    $r->recipe_category = $_POST['recipe_category'] ?? [];
-    $r->tolerance = $_POST['tolerance'] ?? [];
-    $r->author = $_POST['author_name'] ?? '';
+// form action processing
+if (!empty($_POST['action'])) {
+    $sender = [
+        'id' => filter_input(INPUT_POST, 'author_id'),
+        'name' => filter_input(INPUT_POST, 'author_name'),
+        'secret' => filter_input(INPUT_POST, 'author_password'),
+    ];
 
-    try {
-        $response = $scc
-            ->setSender([
-                'id' => filter_input(INPUT_POST, 'author_id'),
-                'name' => filter_input(INPUT_POST, 'author_name'),
-                'secret' => filter_input(INPUT_POST, 'author_password'),
-            ])
-            ->setRequestData(["data" => $r->data])
-            ->sendRequest($_POST['action'] == 'add recipe to the database' ? "recipe-add" : "recipe-validate")
-            ->getResponseData();
-    } catch (Exception $e) {
-        echo $e->getMessage();
+    $scc->setSender($sender);
+    $r->load_from_post();
+
+    switch ($_POST['action']) {
+        case 'load recipe':
+            $response = $r->load_recipe($scc);
+            break;
+        case 'update recipe':
+            $response = $r->update_recipe($scc);
+            break;
+        case 'validate recipe':
+            $response = $r->validate_recipe($scc);
+            break;
+        case 'add recipe':
+            $response = $r->add_new_recipe($scc);
+            break;
+        case 'remove recipe':
+            $response = $r->remove_recipe($scc);
+            break;
     }
+
     $message = new Template('message');
     if (empty($response['stat'])) {
         $message->setData(['stat' => "fail", 'message' => "Ugh..."]);
     } else {
         $message->setData(['stat' => $response['stat'], 'message' => $response['mess'] ?? ""]);
     }
-
 }
 
-
-//var_dump($r->data);
+//form loading
 $form = [
+    "recipe_id" => $r->id ? $r->id : "",
     "name" => $r->name,
     "duration" => $r->duration,
     "description" => $r->description,
@@ -88,8 +90,9 @@ foreach ($r->ingredient as $key => $value) {
         ]
     );
 }
+//var_dump($form);
 
-
+// ingredients list
 try {
     $data = $scc->setRequestData([])->sendRequest("ingredients")->getResponseData();
 } catch (Exception $e) {
@@ -98,17 +101,20 @@ try {
 $ingredients_rows = "";
 if (!empty($data['data'])) {
     $ing_row_tmplt = new Template("ingredients-row");
+    $ing_button_tmplt = new Template("ingredients-button");
     foreach ($data['data'] as $val) {
+        $ing_button_tmplt->setData(["id" => $val['id'], "name" => $val['name']]);
         $ingredients_rows .= (string) $ing_row_tmplt->setData(
             [
                 "id" => $val['id'],
-                "name" => $val['name'],
+                "name" => (string) $ing_button_tmplt,
                 "number_of_uses" => $val['number_of_uses']
             ]
         );
     }
 }
 
+// main page template
 echo new Template(
     "page",
     [

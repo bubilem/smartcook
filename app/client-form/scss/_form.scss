@@ -1,9 +1,18 @@
 form {
+  h2 {
+    margin-top: 2em;
+  }
   .form-group {
     margin: 1em 0;
   }
   label {
     display: block;
+    cursor: pointer;
+  }
+  .info {
+    font-size: 0.8em;
+    text-align: center;
+    color: #666;
   }
   input,
   select,
@@ -16,6 +25,11 @@ form {
   }
   input[type="checkbox"] {
     width: auto;
+  }
+  input[type="submit"] {
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
   }
   .checkbox-group {
     display: grid;
@@ -32,26 +46,6 @@ form {
     }
     .remove {
       margin: 1em 0;
-    }
-  }
-
-  input[type="submit"],
-  button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    transition: all 0.33s ease-in-out;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #218838;
-  }
-  .remove {
-    background-color: #dc3545;
-    &:hover {
-      background-color: #c82333;
     }
   }
 }

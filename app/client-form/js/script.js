@@ -1,7 +1,7 @@
 const ingredientsDiv = document.getElementById("ingredients")
 let autoincrement = ingredientsDiv.children.length
 
-function addIngredient() {
+function addIngredient(id = "", name = "") {
   const ingredientsDiv = document.getElementById("ingredients")
   const key = ++autoincrement
   const ingredientDiv = document.createElement("div")
@@ -10,11 +10,11 @@ function addIngredient() {
   <h3>Ingredient</h3>
   <label
     >Id:
-    <input type="number" step="1" name="ingredient[${key}][id]" value="" />
+    <input type="number" step="1" name="ingredient[${key}][id]" value="${id}" />
   </label>
   <label
     >Name:
-    <input type="text" name="ingredient[${key}][name]" value="" />
+    <input type="text" name="ingredient[${key}][name]" value="${name}" />
   </label>
   <label
     >Quantity:

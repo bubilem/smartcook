@@ -270,6 +270,7 @@ class RecipeModel extends MainModel
         if (empty($this->data['name'])) {
             throw new Exception("Recipe: name is missing or empty");
         }
+        /*
         $result = DB::query(
             "SELECT id FROM recipe WHERE name = :name",
             ["name" => $this->data['name']]
@@ -277,6 +278,7 @@ class RecipeModel extends MainModel
         if (!empty($result)) {
             throw new Exception("Recipe: such a name already exists in the database");
         }
+        */
         if (empty($this->data['difficulty'])) {
             throw new Exception("Recipe: difficulty is missing or empty");
         }
@@ -304,8 +306,9 @@ class RecipeModel extends MainModel
         if (strlen($this->data['country']) != 2) {
             throw new Exception("Recipe: country format is not ISO 3166 alpha-2");
         }
-        if (empty($this->data['dish_category']) || !is_array($this->data['dish_category'])) {
-            throw new Exception("Recipe: dish_category is missing/empty or is not array/list");
+
+        if (!isset($this->data['dish_category']) || !is_array($this->data['dish_category'])) {
+            throw new Exception("Recipe: dish_category is missing or is not array/list");
         }
         if (!$this->strc->keysExist($this->data['dish_category'], "dish_category")) {
             throw new Exception("Recipe: dish_category has incorrect value");

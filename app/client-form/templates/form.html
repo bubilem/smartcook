@@ -3,14 +3,14 @@
   <div class="form-group">
     <label
       >Name:
-      <input type="text" name="name" value="{name}" required />
+      <input type="text" name="name" value="{name}" />
     </label>
   </div>
 
   <div class="form-group">
     <label
       >Difficulty:
-      <select name="difficulty" required size="3">
+      <select name="difficulty" size="3">
         <option value="1" {difficulty_1}>simple</option>
         <option value="2" {difficulty_2}>medium</option>
         <option value="3" {difficulty_3}>difficult</option>
@@ -27,7 +27,6 @@
         step="1"
         name="duration"
         value="{duration}"
-        required
       />
     </label>
   </div>
@@ -35,7 +34,7 @@
   <div class="form-group">
     <label
       >Price:
-      <select name="price" required size="3">
+      <select name="price" size="3">
         <option value="1" {price_1}>cheap</option>
         <option value="2" {price_2}>medium</option>
         <option value="3" {price_3}>expensive</option>
@@ -45,13 +44,13 @@
 
   <div class="form-group">
     <label>Description:</label>
-    <textarea name="description" rows="6" required>{description}</textarea>
+    <textarea name="description" rows="6">{description}</textarea>
   </div>
 
   <div class="form-group">
     <label
       >Country (ISO 3166, cz, pl, uk, de...):
-      <input type="text" name="country" value="{country}" required />
+      <input type="text" name="country" value="{country}" />
     </label>
   </div>
 
@@ -240,31 +239,59 @@
   <div class="form-group">
     <button type="button" onclick="addIngredient()">Add Ingredient</button>
   </div>
-
+  <h2>Author</h2>
   <div class="form-group">
-    <h2>Author</h2>
+    <label
+      >Id: <input type="number" step="1" name="author_id" value="{author_id}"
+    /></label>
+  </div>
+  <div class="form-group">
+    <label
+      >Name: <input type="text" name="author_name" value="{author_name}"
+    /></label>
+  </div>
+  <div class="form-group">
+    <label
+      >Password: <input type="password" name="author_password" value=""
+    /></label>
+  </div>
+  <h2>Recipe identification</h2>
+  <div class="form-group">
     <label
       >Id:
       <input
         type="number"
         step="1"
-        name="author_id"
-        value="{author_id}"
-        required
+        min="0"
+        name="recipe_id"
+        value="{recipe_id}"
     /></label>
-    <label
-      >Name:
-      <input type="text" name="author_name" value="{author_name}" required
-    /></label>
-    <label
-      >Password:
-      <input type="password" name="author_password" value="" required
-    /></label>
+    <p>For loading/updating/deleting an existing recipe</p>
+  </div>
+  <div class="form-group">
+    <h2>Actions</h2>
   </div>
   <div class="form-group">
     <input type="submit" value="validate recipe" name="action" />
+    <p class="info">Validate recipe in form through API call.</p>
   </div>
   <div class="form-group">
-    <input type="submit" value="add recipe to the database" name="action" />
+    <input type="submit" value="add recipe" name="action" />
+    <p class="info">Add new recipe to the database through API call.</p>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="load recipe" name="action" />
+    <p class="info">Load recipe from the database through API call.</p>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="update recipe" name="action" />
+    <p class="info">
+      Update data of the recipe in the database through API call.
+    </p>
+  </div>
+  <br />
+  <div class="form-group">
+    <input class="remove" type="submit" value="remove recipe" name="action" />
+    <p class="info">Remove recipe from the database through API call.</p>
   </div>
 </form>

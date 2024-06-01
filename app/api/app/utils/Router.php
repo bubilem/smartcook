@@ -13,6 +13,7 @@ class Router
             case 'recipe-add':
             case 'recipe-validate':
             case 'recipe-remove':
+            case 'recipe-update':
             case 'recipes':
             case 'authors':
             case 'ingredients':
