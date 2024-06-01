@@ -158,6 +158,93 @@ class RecipeModel extends MainModel
         return $this;
     }
 
+    public function updateDb(): static
+    {
+        try {
+            DB::query("START TRANSACTION");
+            $result = DB::query(
+                "UPDATE recipe "
+                . "SET name=:name, difficulty=:difficulty, duration=:duration, price=:price, description=:description, country=:country, author=:author"
+                . " WHERE id=:id",
+                [
+                    'name' => (string) $this->get("name"),
+                    'difficulty' => (int) $this->get("difficulty"),
+                    'duration' => (int) $this->get("duration"),
+                    'price' => (int) $this->get("price"),
+                    'description' => (string) $this->get("description"),
+                    'country' => (string) $this->get("country"),
+                    'author' => (string) $this->get("author"),
+                    'id' => (string) $this->get("id")
+                ]
+            );
+            if ($result->affectedRowsCount() != 1) {
+                throw new Exception("error while updating recipe record");
+            }
+
+            DB::query("DELETE FROM recipe_has_dish_category WHERE recipe_id = :id", ['id' => (int) $this->get("id")]);
+            foreach ((array) $this->get("dish_category") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_dish_category (recipe_id, dish_category_id) VALUES (:r, :c)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        'c' => (int) $val
+                    ]
+                );
+            }
+
+            DB::query("DELETE FROM recipe_has_category WHERE recipe_id = :id", ['id' => (int) $this->get("id")]);
+            foreach ((array) $this->get("recipe_category") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_category (recipe_id, recipe_category_id) VALUES (:r, :c)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        'c' => (int) $val
+                    ]
+                );
+            }
+
+            DB::query("DELETE FROM recipe_has_tolerance WHERE recipe_id = :id", ['id' => (int) $this->get("id")]);
+            foreach ((array) $this->get("tolerance") as $val) {
+                DB::query(
+                    "INSERT INTO recipe_has_tolerance (recipe_id, tolerance_id) VALUES (:r, :t)",
+                    [
+                        'r' => (int) $this->get("id"),
+                        't' => (int) $val
+                    ]
+                );
+            }
+
+            $rota = 1;
+            DB::query("DELETE FROM recipe_has_ingredient WHERE recipe_id = :id", ['id' => (int) $this->get("id")]);
+            foreach ((array) $this->get("ingredient") as $val) {
+                $ingr = new IngredientModel($val, $this->strc);
+                $ingr->validate();
+                if (!$ingr->get("id")) {
+                    $ingr->insertToDb();
+                }
+                DB::query(
+                    "INSERT INTO recipe_has_ingredient (recipe_id, ingredient_id, quantity, unit, necessary, rota, comment) "
+                    . "VALUES (:recipe_id, :ingredient_id, :quantity, :unit, :necessary, :rota, :comment)",
+                    [
+                        'recipe_id' => (int) $this->get("id"),
+                        'ingredient_id' => (int) $ingr->get("id"),
+                        'quantity' => $ingr->get("quantity"),
+                        'unit' => (string) $ingr->get("unit"),
+                        'necessary' => (int) $ingr->get("necessary"),
+                        'rota' => $rota++,
+                        'comment' => $ingr->get("comment") ? (string) $ingr->get("comment") : null,
+                    ]
+                );
+            }
+
+            DB::query("COMMIT");
+        } catch (Exception $e) {
+            DB::query("ROLLBACK");
+            throw new Exception('Recipe add: ' . $e->getMessage());
+        }
+        return $this;
+    }
+
     public function removeFromDb(): static
     {
         try {
