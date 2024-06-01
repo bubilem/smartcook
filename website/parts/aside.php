@@ -9,6 +9,7 @@
         <a href="https://www.smartcook-project.eu/todays-table/">CLIENT - Today's Table</a>
         <a href="https://www.smartcook-project.eu/form/">CLIENT - Form</a>
         <a href="https://www.smartcook-project.eu/guess-the-recipe/">CLIENT - Guess the Recipe Game</a>
+        <a href="https://www.smartcook-project.eu/recipe-by-ingredients/">CLIENT - Recipe by ingredients</a>
         <a href="https://www.skolavdf.cz">VOŠ, SPŠ a SOŠ Varnsdorf</a>
     </nav>
     <?php
