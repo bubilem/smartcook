@@ -12,8 +12,7 @@ class RecipeValidateController extends MainController
                 user: $this->req->getUser()
             )
         )
-            ->validate()
-            ->validateAuthor();
+            ->validate();
 
         $this->res
             ->set('stat', 'ok')

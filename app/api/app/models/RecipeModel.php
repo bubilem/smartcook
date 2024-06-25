@@ -264,9 +264,11 @@ class RecipeModel extends MainModel
         if (empty($this->data)) {
             throw new Exception("Recipe: no recipe data");
         }
+        /*
         if (empty($this->data['author'])) {
             throw new Exception("Recipe: author is missing");
         }
+        */
         if (empty($this->data['name'])) {
             throw new Exception("Recipe: name is missing or empty");
         }
@@ -306,7 +308,6 @@ class RecipeModel extends MainModel
         if (strlen($this->data['country']) != 2) {
             throw new Exception("Recipe: country format is not ISO 3166 alpha-2");
         }
-
         if (!isset($this->data['dish_category']) || !is_array($this->data['dish_category'])) {
             throw new Exception("Recipe: dish_category is missing or is not array/list");
         }
@@ -343,6 +344,12 @@ class RecipeModel extends MainModel
         if ($this->data['author'] != $this->user->get("name")) {
             throw new Exception("Recipe: author of the recipe does not match the sender of the request");
         }
+        return $this;
+    }
+
+    public function userToAuthor(): static
+    {
+        $this->set("author", $this->user->get("name"));
         return $this;
     }
 

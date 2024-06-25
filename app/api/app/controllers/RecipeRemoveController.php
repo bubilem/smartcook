@@ -12,7 +12,6 @@ class RecipeRemoveController extends MainController
 
         (new RecipeModel(strc: new StructureModel, user: $this->req->getUser()))
             ->loadFromDb($recipe_id)
-            ->validateAuthor()
             ->removeFromDb();
 
         $this->res

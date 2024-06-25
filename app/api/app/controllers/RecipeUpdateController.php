@@ -12,7 +12,7 @@ class RecipeUpdateController extends MainController
         );
         $recipe
             ->validate()
-            ->validateAuthor()
+            ->userToAuthor()
             ->updateDb();
         $this->res
             ->set('stat', 'ok')
