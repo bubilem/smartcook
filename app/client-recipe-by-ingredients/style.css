@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 16px;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ header {
   flex-wrap: nowrap;
   padding: 1em;
   color: #eff;
-  background: #566;  
+  background: #566;
 }
 h1 {
   font-size: 1.4em;
@@ -37,7 +37,13 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 0.5em;
 }
-button {
+main.recipes {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1em;
+}
+.btn,
+button,
+input[type="submit"] {
   display: block;
   padding: 1em;
   color: #333;
@@ -46,14 +52,17 @@ button {
   border-radius: 0.5em;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
   font-weight: 600;
   transition: all 0.33s ease-in-out;
 }
-button:hover {
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
   color: #fff;
-  background-color: #566;
+  background-color: #455;
 }
-button span.badge{
+button span.badge {
   font-size: 0.8em;
   color: #555;
   padding: 0.25em 0.5em;
@@ -63,4 +72,22 @@ button span.badge{
 button.active {
   color: #333;
   background-color: #8ca;
+}
+input[type="text"] {
+  display: none;
+}
+.recipe h2 {
+  font-size: 1.4em;
+  margin: 0.5em 0;
+}
+.recipe img {
+  width: 100%;
+}
+.recipe td {
+  margin: 0;
+  padding: 0.5em 0.25em;
+  vertical-align: top;
+}
+.recipe td:first-child {
+  color: #aaa;
 }

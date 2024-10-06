@@ -16,6 +16,11 @@ buttons.forEach((button) => {
       Object.values(selected_ingredients).join(", ")
     document.getElementById("selected-ingredients").textContent =
       selected_ingredients_list
+
+    document
+      .getElementById("ingredients")
+      .setAttribute("value", Object.keys(selected_ingredients).join(","))
     //console.log(`Vybrána ingredience s ID ${ingredient_id}`)
+    //console.log(selected_ingredients)
   }
 })
