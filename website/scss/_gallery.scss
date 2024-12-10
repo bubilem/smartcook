@@ -1,6 +1,6 @@
 .gallery {
   margin: 2rem 0;
-  > img {
+  img {
     border-radius: 0.5em;
     margin: 0.5rem 0;
     width: 100%;
@@ -20,6 +20,14 @@
     }
     @media screen and (min-width: 1600px) {
       column-count: 3;
+    }
+  }
+  figure {
+    width: 100%;
+    margin: 1rem 0;
+    figcaption {
+      font-size: 0.8em;
+      font-style: italic;
     }
   }
 }

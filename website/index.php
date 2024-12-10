@@ -23,7 +23,7 @@ require "parts/init.php";
   <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <link rel="stylesheet" href="css/style.min.css?v=2" />
+  <link rel="stylesheet" href="css/style.min.css?v=4" />
 </head>
 
 <body>

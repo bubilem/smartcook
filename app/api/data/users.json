@@ -7,6 +7,51 @@
   "1": {
     "id": 1,
     "name": "Test User",
-    "secret": "****"
+    "secret": "5cbut4"
+  },
+  "2": {
+    "id": 2,
+    "name": "Broz Matyas",
+    "secret": "qh3pug"
+  },
+  "3": {
+    "id": 3,
+    "name": "Michal Bubilek",
+    "secret": "bubi78"
+  },
+  "5": {
+    "id": 5,
+    "name": "Fichtner Lukas",
+    "secret": "5vc4z7"
+  },
+  "7": {
+    "id": 7,
+    "name": "Chvatal Vaclav",
+    "secret": "x5bz5s"
+  },
+  "9": {
+    "id": 9,
+    "name": "Kovac Ondrej",
+    "secret": "xnb4bu"
+  },
+  "13": {
+    "id": 13,
+    "name": "Mokris Tomas",
+    "secret": "d9e936"
+  },
+  "18": {
+    "id": 18,
+    "name": "Pokorak David",
+    "secret": "x3tn43"
+  },
+  "23": {
+    "id": 23,
+    "name": "Trnka Jaromir",
+    "secret": "kd5v2q"
+  },
+  "25": {
+    "id": 25,
+    "name": "Zaruba Daniel",
+    "secret": "76b4j3"
   }
 }
