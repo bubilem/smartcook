@@ -24,6 +24,6 @@ The SMART COOK project has been successfully completed, but the cooperation betw
 
 ---
 
-![backup/images/eu/eu_funded_en_blue.jpg](backup/images/eu/eu_funded_en_blue.jpg)
+![eu_funded_en_blue.jpg](backup/images/eu/eu_funded_en_blue.jpg)
 
 Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor EACEA can be held responsible for them.
